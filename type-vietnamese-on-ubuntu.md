@@ -24,9 +24,9 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 > Nếu bạn dùng qua các bộ gõ khác trên Ubuntu _(hay các distro khác)_ như **IBus Unikey**, **IBus Teni**, **Fcitx Unikey**, ... thì tất cả chúng chỉ có tùy chọn duy nhất là chế độ **có gạch chân** _(pre-edit)_ xấu xí:
 >
 > - Thường bị chữ đang gõ lệch ra ngoài input.
-> - Mất chữ khi chưa commit (bằng dấu cách, dấu chấm, Ctrl, ...).
+> - Mất chữ khi chưa commit _(bằng dấu cách, dấu chấm, Ctrl, ...)_.
 > - Không thể đặt lại dấu cho chữ đã commit.
-> - Không hoặc kém đáp ứng với các ứng dụng có gợi ý theo từ đang gõ _(autocomplete).
+> - Không hoặc kém đáp ứng với các ứng dụng có gợi ý theo từ đang gõ _(autocomplete)_.
 >
 > **IBus Bamboo** khắc phục tất cả nhược điểm trên khi chạy ở chế độ **không gạch chân**.
 >
