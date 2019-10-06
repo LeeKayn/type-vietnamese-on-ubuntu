@@ -55,3 +55,31 @@ Một số ứng dụng như Steam, Teamviewer, Spotify, ... không hỗ trợ I
 ### Ngoài lề
 
 **IBus Bamboo** hiện tại khá tốt nhưng vẫn còn nhiều lỗi. Cơ chế gõ không gạch chân này cũng từng được **IBus Teni** đề cập trong lộ trình phát triển v2 nhưng không hiểu sao lại ngừng và bỏ luôn dự án.
+
+## Elementary OS
+
+**eOS** hỗ trợ ibus rất kém, không có icon trên status bar, không tự thêm ibus vào startup nên bạn cần phải tự chỉnh thủ công.
+
+1. Kích hoạt ibus:
+
+       sudo im-config
+
+    Chọn `ibus` từ bảng cấu hình.
+1. Thêm vào startup **System Settings > Applications > Startup**:
+
+       ibus-daemon -drx
+
+1. Cài đặt **Ibus Bamboo** như trên.
+1. Cấu hình bộ gõ **System Settings > Keyboard > Layout > Input Method Settings**.
+1. Đăng xuất.
+
+Sau khi đăng nhập trở lại bạn có thể gõ Tiếng Việt với **IBus Bamboo**.
+Tuy nhiên do không có icon trên status bar nên bạn phải đổi kiểu gõ thủ công từ tệp cầu hình.
+
+    nano ~/.config/ibus-bamboo/ibus-bamboo.config.json
+
+Thay đổi kiểu gõ trong `InputMethod` và lưu lại. Nếu bạn gõ mặc định kiểu **Telex** thì không cần làm bước này. Ví dụ:
+
+    "InputMethod": "VNI"
+
+Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** là `Ctrl+space`.
