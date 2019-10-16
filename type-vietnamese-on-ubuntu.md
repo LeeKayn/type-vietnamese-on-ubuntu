@@ -8,12 +8,15 @@ Chi tiết cài đặt đã ghi rõ tại [BambooEngine/ibus-bamboo](https://git
 
 ```bash
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-sudo apt-get update
-sudo apt-get install ibus-bamboo
+sudo apt install ibus-bamboo
 ibus restart
 ```
 
-Sau khi cài, thiết lập bộ gõ **Vietnamese (Bamboo)** trong **Settings > Region & Language > Input Sources**.
+## Cấu hình
+
+1. Truy cập cấu hình bộ gõ **Settings > Region & Language > Input Sources**.
+2. Thiết lập 2 bộ gõ gồm **English (US)** và **Vietnamese (Bamboo)**.
+3. Trong mục **Options** chọn **Allow different sources for each window** để tự chuyển đổi bộ gõ khi vào các ứng dụng khác nhau.
 
 ## Sử dụng
 
@@ -44,13 +47,10 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 
 ## Lưu ý
 
-Nên dùng chế độ loại trừ cho các ứng dụng không gõ Tiếng Việt như Terminal, Nautilus, ...
-
-Tránh dùng chế độ XTestFakeKeyEvent vì nó khá chậm, thường bị mất dấu.
-
-Trong các website mà input có chức gợi ý, tự động sửa như Select2, CodeMirror, ... thì có thể phải thay đổi chế độ gõ khác hoặc buộc phải dùng chế độ **có gạch chân**.
-
-Một số ứng dụng như Steam, Teamviewer, Spotify, ... không hỗ trợ Ibus thì **IBus Bamboo** cũng bó tay.
+- Phím tắt chuyển đổi bộ gõ **en-vi** mặc định là `Win+space`. Bạn có thể thay đổi trong **Settings > Devices > Keyboard Shortcuts > Typing**.
+- Tránh dùng chế độ XTestFakeKeyEvent vì nó khá chậm, thường bị mất dấu.
+- Trong các website mà input có chức gợi ý, tự động sửa như Select2, CodeMirror, ... thì có thể phải thay đổi chế độ gõ khác hoặc buộc phải dùng chế độ **có gạch chân**.
+- Một số ứng dụng như Steam, Teamviewer, Spotify, ... không hỗ trợ Ibus thì **IBus Bamboo** cũng bó tay.
 
 ### Ngoài lề
 
@@ -82,4 +82,4 @@ Thay đổi kiểu gõ trong `InputMethod` và lưu lại. Nếu bạn gõ mặc
 
     "InputMethod": "VNI"
 
-Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** là `Ctrl+space`.
+Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** mặc định của **eOS** là `Ctrl+space`.
