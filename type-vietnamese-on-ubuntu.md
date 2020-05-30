@@ -43,7 +43,8 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 4. **LibreOffice**: Tất cả chế độ không gạch chân.
 5. **Pidgin**: Tất cả chế độ không gạch chân.
 6. **Steam**: [_Không thể chạy Ibus trong Steam_](https://github.com/ValveSoftware/steam-for-linux/issues/781), vì thế để nhắn tin Tiếng Việt bạn cần dùng Pidgin và cài thêm plugin [Steam IM](https://github.com/EionRobb/pidgin-opensteamworks).
-7. _...cần bổ sung thêm_
+7. **TeamViewer**: Surrounding Text.
+8. _...cần bổ sung thêm_
 
 ## Lưu ý
 
