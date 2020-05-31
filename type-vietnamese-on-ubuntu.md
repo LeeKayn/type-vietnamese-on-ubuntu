@@ -7,6 +7,7 @@ Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi 
 Chi tiết cài đặt đã ghi rõ tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
 
 ```bash
+sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
 sudo apt install ibus-bamboo
 ibus restart
@@ -38,13 +39,14 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 ### Các ứng dụng phổ biến
 
 1. **Terminal**: trừ chế độ Surrounding Text ra.
-2. Các ứng dụng xây dựng từ **Chromium** hoặc **Electron**: ForwardKeyEvent I _(hoặc II)_.
-3. **Firefox**: Tất cả chế độ không gạch chân. Trong Dev Tools thì chỉ có chế độ Forward as commit hỗ trợ autocomplete.
-4. **LibreOffice**: Tất cả chế độ không gạch chân.
-5. **Pidgin**: Tất cả chế độ không gạch chân.
-6. **Steam**: [_Không thể chạy Ibus trong Steam_](https://github.com/ValveSoftware/steam-for-linux/issues/781), vì thế để nhắn tin Tiếng Việt bạn cần dùng Pidgin và cài thêm plugin [Steam IM](https://github.com/EionRobb/pidgin-opensteamworks).
-7. **TeamViewer**: Surrounding Text.
-8. _...cần bổ sung thêm_
+1. Ứng dụng xây dựng từ **Chromium** hoặc **Electron** _(e.g.: **Google Chrome**, **VSCode**)_: ForwardKeyEvent I _(hoặc II)_.
+1. **Firefox**: Tất cả chế độ không gạch chân. Trong Dev Tools thì chỉ có chế độ Forward as commit hỗ trợ autocomplete.
+1. **LibreOffice**: Tất cả chế độ không gạch chân.
+1. **Pidgin**: Tất cả chế độ không gạch chân.
+1. **Steam**: [_Không thể chạy Ibus trong Steam_](https://github.com/ValveSoftware/steam-for-linux/issues/781), vì thế để nhắn tin Tiếng Việt bạn cần dùng Pidgin và cài thêm plugin [Steam IM](https://github.com/EionRobb/pidgin-opensteamworks).
+1. **TeamViewer**: Surrounding Text.
+1. **Sublime Text**: ForwardKeyEvent I _(hoặc II)_, Forward as commit.
+1. _...cần bổ sung thêm_
 
 ## Lưu ý
 
@@ -52,10 +54,7 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 - Tránh dùng chế độ XTestFakeKeyEvent vì nó khá chậm, thường bị mất dấu.
 - Trong các website mà input có chức gợi ý, tự động sửa như Select2, CodeMirror, ... thì có thể phải thay đổi chế độ gõ khác hoặc buộc phải dùng chế độ **có gạch chân**.
 - Một số ứng dụng như Steam, Teamviewer, Spotify, ... không hỗ trợ Ibus thì **IBus Bamboo** cũng bó tay.
-
-### Ngoài lề
-
-**IBus Bamboo** hiện tại khá tốt nhưng vẫn còn nhiều lỗi. Cơ chế gõ không gạch chân này cũng từng được **IBus Teni** đề cập trong lộ trình phát triển v2 nhưng không hiểu sao lại ngừng và bỏ luôn dự án.
+- Xem thêm [hướng dẫn khắc phục lỗi biến môi trường của IBus](https://github.com/BambooEngine/ibus-bamboo/wiki/Kh%C3%B4ng-g%C3%B5-%C4%91%C6%B0%E1%BB%A3c-ti%E1%BA%BFng-vi%E1%BB%87t-tr%C3%AAn-ph%E1%BA%A7n-m%E1%BB%81m-%60abc-xyz%60).
 
 ## Elementary OS
 
@@ -63,9 +62,8 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 
 1. Kích hoạt ibus:
 
-       sudo im-config
+       sudo im-config -s ibus
 
-    Chọn `ibus` từ bảng cấu hình.
 1. Thêm vào startup **System Settings > Applications > Startup**:
 
        ibus-daemon -drx
@@ -84,3 +82,9 @@ Thay đổi kiểu gõ trong `InputMethod` và lưu lại. Nếu bạn gõ mặc
     "InputMethod": "VNI"
 
 Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** mặc định của **eOS** là `Ctrl+space`.
+
+
+## Ngoài lề
+
+**IBus Bamboo** hiện tại khá tốt nhưng vẫn còn một số lỗi. Khó chịu nhất có lẽ là lỗi [không nhận diện được search box #80](https://github.com/BambooEngine/ibus-bamboo/issues/80), hầu hết các môi trường desktop đều bị, chỉ trừ con **eOS** ghẻ kia.
+Cơ chế gõ không gạch chân này cũng từng được **IBus Teni** đề cập trong lộ trình phát triển v2, nhưng không hiểu sao lại ngừng rồi bỏ luôn dự án.
