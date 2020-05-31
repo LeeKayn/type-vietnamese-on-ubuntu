@@ -1,23 +1,38 @@
-# Gõ Tiếng Việt trong Ubuntu
+# Gõ Tiếng Việt trong Linux
 
 Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi gạch chân như các bộ gõ khác.
 
 ## Cài đặt
 
-Chi tiết cài đặt đã ghi rõ tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
+### Ibus
 
-```bash
-sudo apt install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
-sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-sudo apt install ibus-bamboo
-ibus restart
-```
+sudo apt install im-config ibus ibus-setup ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
+
+### IBus Bamboo
+
+    sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+    sudo apt install ibus-bamboo
+    ibus restart
+
+Các distro khác Ubuntu, vui lòng xem tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
 
 ## Cấu hình
 
+### GNOME
+
 1. Truy cập cấu hình bộ gõ **Settings > Region & Language > Input Sources**.
-2. Thiết lập 2 bộ gõ gồm **English (US)** và **Vietnamese (Bamboo)**.
-3. Trong mục **Options** chọn **Allow different sources for each window** để tự chuyển đổi bộ gõ khi vào các ứng dụng khác nhau.
+1. Thiết lập 2 bộ gõ gồm **English (US)** và **Vietnamese (Bamboo)**.
+1. Trong mục **Options** chọn **Allow different sources for each window** để tự chuyển đổi bộ gõ khi vào các ứng dụng khác nhau.
+
+### Môi trường Desktop khác
+
+    sudo im-config -s ibus
+
+1. Tìm ứng dụng **Ibus Prefences** hoặc chạy lệnh:
+
+       ibus-setup
+
+1. Mở tab **Input Method > Add**: Tìm Vietnamese, chọn bộ gõ **Bamboo**.
 
 ## Sử dụng
 
@@ -87,4 +102,5 @@ Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** mặc định của **eOS
 ## Ngoài lề
 
 **IBus Bamboo** hiện tại khá tốt nhưng vẫn còn một số lỗi. Khó chịu nhất có lẽ là lỗi [không nhận diện được search box #80](https://github.com/BambooEngine/ibus-bamboo/issues/80), hầu hết các môi trường desktop đều bị, chỉ trừ con **eOS** ghẻ kia.
+
 Cơ chế gõ không gạch chân này cũng từng được **IBus Teni** đề cập trong lộ trình phát triển v2, nhưng không hiểu sao lại ngừng rồi bỏ luôn dự án.
