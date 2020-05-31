@@ -7,7 +7,7 @@ Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi 
 Chi tiết cài đặt đã ghi rõ tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
 
 ```bash
-sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
+sudo apt install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
 sudo apt install ibus-bamboo
 ibus restart
