@@ -34,6 +34,8 @@ Các distro khác Ubuntu, vui lòng xem tại [BambooEngine/ibus-bamboo](https:/
 
 1. Mở tab **Input Method > Add**: Tìm Vietnamese, chọn bộ gõ **Bamboo**.
 
+       ibus restart
+
 ## Sử dụng
 
 Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và bật **Chuyển chế độ gõ `Shift + ~`** _(nếu chưa bật)_.
@@ -63,7 +65,7 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 1. **Sublime Text**: ForwardKeyEvent I _(hoặc II)_, Forward as commit.
 1. _...cần bổ sung thêm_
 
-## Lưu ý
+### Lưu ý
 
 - Phím tắt chuyển đổi bộ gõ **en-vi** mặc định là `Win+space`. Bạn có thể thay đổi trong **Settings > Devices > Keyboard Shortcuts > Typing**.
 - Tránh dùng chế độ XTestFakeKeyEvent vì nó khá chậm, thường bị mất dấu.
