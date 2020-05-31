@@ -6,7 +6,7 @@ Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi 
 
 ### Ibus
 
-    sudo apt install im-config ibus ibus-setup ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
+    sudo apt install im-config ibus ibus-clutter ibus-gtk ibus-gtk3
 
 ### IBus Bamboo
 
