@@ -70,7 +70,7 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 - Phím tắt chuyển đổi bộ gõ **en-vi** mặc định là `Win+space`. Bạn có thể thay đổi trong **Settings > Devices > Keyboard Shortcuts > Typing**.
 - Tránh dùng chế độ XTestFakeKeyEvent vì nó khá chậm, thường bị mất dấu.
 - Trong các website mà input có chức gợi ý, tự động sửa như Select2, CodeMirror, ... thì có thể phải thay đổi chế độ gõ khác hoặc buộc phải dùng chế độ **có gạch chân**.
-- Một số ứng dụng như Steam, Teamviewer, Spotify, ... không hỗ trợ Ibus thì **IBus Bamboo** cũng bó tay.
+- Một số ứng dụng như Steam, Spotify, ... không hỗ trợ Ibus thì **IBus Bamboo** cũng bó tay.
 - Xem thêm [hướng dẫn khắc phục lỗi biến môi trường của IBus](https://github.com/BambooEngine/ibus-bamboo/wiki/Kh%C3%B4ng-g%C3%B5-%C4%91%C6%B0%E1%BB%A3c-ti%E1%BA%BFng-vi%E1%BB%87t-tr%C3%AAn-ph%E1%BA%A7n-m%E1%BB%81m-%60abc-xyz%60).
 
 ## Elementary OS
@@ -90,7 +90,7 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 1. Đăng xuất.
 
 Sau khi đăng nhập trở lại bạn có thể gõ Tiếng Việt với **IBus Bamboo**.
-Tuy nhiên do không có icon trên status bar nên bạn phải đổi kiểu gõ thủ công từ tệp cầu hình.
+Tuy nhiên do không có icon trên status bar nên bạn phải đổi kiểu gõ thủ công từ tệp cấu hình.
 
     nano ~/.config/ibus-bamboo/ibus-bamboo.config.json
 
