@@ -5,16 +5,16 @@ Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi 
 ## Cài đặt
 
 ### Ibus
-
-    sudo apt install im-config ibus ibus-clutter ibus-gtk ibus-gtk3
-
+```bash
+sudo apt install im-config ibus ibus-clutter ibus-gtk ibus-gtk3
+```
 ### IBus Bamboo
-
-    sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-    sudo apt install ibus-bamboo
-    # ibus-daemon &
-    ibus restart
-
+```bash
+sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+sudo apt install ibus-bamboo
+# ibus-daemon &
+ibus restart
+```
 Các distro khác Ubuntu, vui lòng xem tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
 
 ## Cấu hình
@@ -26,17 +26,17 @@ Các distro khác Ubuntu, vui lòng xem tại [BambooEngine/ibus-bamboo](https:/
 1. Trong mục **Options** chọn **Allow different sources for each window** để tự chuyển đổi bộ gõ khi vào các ứng dụng khác nhau.
 
 ### Môi trường Desktop khác
-
-    sudo im-config -s ibus
-
+```bash
+sudo im-config -s ibus
+```
 1. Tìm ứng dụng **Ibus Prefences** hoặc chạy lệnh:
-
-       ibus-setup
-
+    ```bash
+    ibus-setup
+    ```
 1. Mở tab **Input Method > Add**: Tìm Vietnamese, chọn bộ gõ **Bamboo**.
-
-       ibus restart
-
+    ```bash
+    ibus restart
+    ```
 ## Sử dụng
 
 Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và bật **Chuyển chế độ gõ `Shift + ~`** _(nếu chưa bật)_.
@@ -79,26 +79,26 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 **eOS** hỗ trợ ibus rất kém, không có icon trên status bar, không tự thêm ibus vào startup nên bạn cần phải tự chỉnh thủ công.
 
 1. Kích hoạt ibus:
-
-       sudo im-config -s ibus
-
+    ```bash
+    sudo im-config -s ibus
+    ```
 1. Thêm vào startup **System Settings > Applications > Startup**:
-
-       ibus-daemon -drx
-
+    ```bash
+    ibus-daemon -drx
+    ```
 1. Cài đặt **Ibus Bamboo** như trên.
 1. Cấu hình bộ gõ **System Settings > Keyboard > Layout > Input Method Settings**.
 1. Đăng xuất.
 
 Sau khi đăng nhập trở lại bạn có thể gõ Tiếng Việt với **IBus Bamboo**.
 Tuy nhiên do không có icon trên status bar nên bạn phải đổi kiểu gõ thủ công từ tệp cấu hình.
-
-    nano ~/.config/ibus-bamboo/ibus-bamboo.config.json
-
+```bash
+nano ~/.config/ibus-bamboo/ibus-bamboo.config.json
+```
 Thay đổi kiểu gõ trong `InputMethod` và lưu lại. Nếu bạn gõ mặc định kiểu **Telex** thì không cần làm bước này. Ví dụ:
-
-    "InputMethod": "VNI"
-
+```ini
+"InputMethod": "VNI"
+```
 Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** mặc định của **eOS** là `Ctrl+space`.
 
 
