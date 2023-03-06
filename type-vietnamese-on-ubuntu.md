@@ -12,6 +12,7 @@ Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi 
 
     sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
     sudo apt install ibus-bamboo
+    # ibus-daemon &
     ibus restart
 
 Các distro khác Ubuntu, vui lòng xem tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
