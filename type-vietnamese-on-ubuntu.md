@@ -4,39 +4,39 @@ Ghi chú cách dùng IBus Bamboo để gõ Tiếng Việt mà không bị lỗi 
 
 ## Cài đặt
 
-### Ibus
-```bash
-sudo apt install im-config ibus ibus-clutter ibus-gtk ibus-gtk3
-```
-### IBus Bamboo
 ```bash
 sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-sudo apt install ibus-bamboo
-# ibus-daemon &
+sudo apt-get update
+sudo apt-get install ibus ibus-bamboo --install-recommends
 ibus restart
+env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
 ```
+
 Các distro khác Ubuntu, vui lòng xem tại [BambooEngine/ibus-bamboo](https://github.com/BambooEngine/ibus-bamboo).
 
 ## Cấu hình
 
 ### GNOME
 
-1. Truy cập cấu hình bộ gõ **Settings > Region & Language > Input Sources**.
+1. Truy cập cấu hình bộ gõ **Settings > Keyboard > Input Sources**.
 1. Thiết lập 2 bộ gõ gồm **English (US)** và **Vietnamese (Bamboo)**.
 1. Trong mục **Options** chọn **Allow different sources for each window** để tự chuyển đổi bộ gõ khi vào các ứng dụng khác nhau.
 
 ### Môi trường Desktop khác
+
 ```bash
 sudo im-config -s ibus
 ```
+
 1. Tìm ứng dụng **Ibus Prefences** hoặc chạy lệnh:
-    ```bash
-    ibus-setup
-    ```
+   ```bash
+   ibus-setup
+   ```
 1. Mở tab **Input Method > Add**: Tìm Vietnamese, chọn bộ gõ **Bamboo**.
-    ```bash
-    ibus restart
-    ```
+   ```bash
+   ibus restart
+   ```
+
 ## Sử dụng
 
 Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và bật **Chuyển chế độ gõ `Shift + ~`** _(nếu chưa bật)_.
@@ -73,34 +73,73 @@ Khi bật bộ gõ lên, mở menu **vi**, kiểm tra mục **Phím tắt** và 
 - Trong các website mà input có chức gợi ý, tự động sửa như Select2, CodeMirror, ... thì có thể phải thay đổi chế độ gõ khác hoặc buộc phải dùng chế độ **có gạch chân**.
 - Một số ứng dụng như Steam, Spotify, ... không hỗ trợ Ibus thì **IBus Bamboo** cũng bó tay.
 - Xem thêm [hướng dẫn khắc phục lỗi biến môi trường của IBus](https://github.com/BambooEngine/ibus-bamboo/wiki/Kh%C3%B4ng-g%C3%B5-%C4%91%C6%B0%E1%BB%A3c-ti%E1%BA%BFng-vi%E1%BB%87t-tr%C3%AAn-ph%E1%BA%A7n-m%E1%BB%81m-%60abc-xyz%60).
+- Trong trường hợp không thể dùng phím tắt `Shift + ~`, cài đặt [linushdot/unsafe-mode-menu](https://github.com/BambooEngine/ibus-bamboo/issues/374#issuecomment-1296228540), hoặc chỉnh sửa thủ công tệp cấu hình:
+    ```bash
+    xdg-open ~/.config/ibus-bamboo/ibus-bamboo.config.json
+    ```
+  Thêm hoặc cập nhật `InputModeMapping`:
+    ```json
+    {
+      "InputModeMapping": {
+        "gnome-terminal-server:Gnome-terminal": 7,
+        "code:Code": 4
+      }
+    }
+    ```
+  - Để lấy thông tin ứng dụng, chạy lệnh `xprop WM_CLASS` trong Terminal, và click vào ứng dụng, sẽ thấy thông tin:
+    ```properties
+    WM_CLASS(STRING) = "google-chrome", "Google-chrome"
+    ```
+  - Cập nhật tương ứng vào `InputModeMapping`, với số mode theo danh sách sau:
+    1. Pre-edit (có gạch chân)
+    2. Surrounding Text (không gạch chân)
+    3. ForwardKeyEvent I (không gạch chân)
+    4. ForwardKeyEvent II (không gạch chân)
+    5. Forward as Commit (không gạch chân)
+    6. XTestFakeKeyEvent (không gạch chân)
+    7. Thêm vào danh sách loại trừ
+  - Ví dụ:
+    ```json
+    {
+      "InputModeMapping": {
+        "gnome-terminal-server:Gnome-terminal": 7,
+        "code:Code": 4,
+        "google-chrome:Google-chrome": 4
+      }
+    }
+    ```
+  - Khởi động lại: `ibus restart`
 
 ## Elementary OS
 
 **eOS** hỗ trợ ibus rất kém, không có icon trên status bar, không tự thêm ibus vào startup nên bạn cần phải tự chỉnh thủ công.
 
 1. Kích hoạt ibus:
-    ```bash
-    sudo im-config -s ibus
-    ```
+   ```bash
+   sudo im-config -s ibus
+   ```
 1. Thêm vào startup **System Settings > Applications > Startup**:
-    ```bash
-    ibus-daemon -drx
-    ```
+   ```bash
+   ibus-daemon -drx
+   ```
 1. Cài đặt **Ibus Bamboo** như trên.
 1. Cấu hình bộ gõ **System Settings > Keyboard > Layout > Input Method Settings**.
 1. Đăng xuất.
 
 Sau khi đăng nhập trở lại bạn có thể gõ Tiếng Việt với **IBus Bamboo**.
 Tuy nhiên do không có icon trên status bar nên bạn phải đổi kiểu gõ thủ công từ tệp cấu hình.
+
 ```bash
-nano ~/.config/ibus-bamboo/ibus-bamboo.config.json
+xdg-open ~/.config/ibus-bamboo/ibus-bamboo.config.json
 ```
+
 Thay đổi kiểu gõ trong `InputMethod` và lưu lại. Nếu bạn gõ mặc định kiểu **Telex** thì không cần làm bước này. Ví dụ:
+
 ```ini
 "InputMethod": "VNI"
 ```
-Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** mặc định của **eOS** là `Ctrl+space`.
 
+Lưu ý phím tắt chuyển đổi bộ gõ **en-vi** mặc định của **eOS** là `Ctrl+space`.
 
 ## Ngoài lề
 
